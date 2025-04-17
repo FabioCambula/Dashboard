@@ -1,18 +1,3 @@
-<template>
-  <div>
-    <h2>Log di Sistema</h2>
-    <div v-if="logs.length">
-      <ul>
-        <li v-for="(log, index) in logs" :key="index">
-          <strong>{{ log.date }} - {{ log.type }}:</strong> {{ log.text }}
-        </li>
-      </ul>
-    </div>
-    <div v-else>
-      Caricamento log...
-    </div>
-  </div>
-</template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
@@ -33,11 +18,35 @@ onMounted(() => {
   fetchLogs();
 });
 </script>
+<template>
+  <b-container class="py-4">
+    <b-card
+      header="Log di Sistema"
+      header-bg-variant="info"
+      header-text-variant="white"
+      class="shadow-sm card-log"
+    >
+      <div v-if="logs.length" class="log-container">
+        <div v-for="(log, index) in logs" :key="index" class="log-item">
+          <p class="mb-0">
+            <strong>{{ log.date }} - {{ log.type }}:</strong>
+            {{ log.text }}
+          </p>
+        </div>
+      </div>
+      <div v-else class="text-center">
+        Caricamento log...
+      </div>
+    </b-card>
+  </b-container>
+</template>
+
 <style scoped>
-h2 {
-  color: #4CAF50;
-  font-size: 2rem;
-  text-align: center;
+.card-log{
+  border-radius: 30px;
+}
+header{
+  border-radius: 30px;
 }
 
 ul {
@@ -55,5 +64,15 @@ li {
 
 strong {
   color: #333;
+}
+.log-container {
+  overflow-y: hidden;
+  margin-bottom: 2rem;
+  padding-right: 0.5rem;
+}
+.log-item:not(:last-child) {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0px;
+  margin-bottom: 1rem;
 }
 </style>

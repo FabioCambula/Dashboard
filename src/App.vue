@@ -1,69 +1,62 @@
 <template>
-  <div class="container" id="app">
-    <div class="row justify-content-center">
-      <!-- Colonna per h2 e header -->
-      <div class="col-10 mx-auto">
-        <h2 class="hotel">Hotel Pomelia</h2>
+  <b-container fluid id="app">
+    <!-- immagine -->
+    <b-row class="h-100">
+      <b-col cols="12" lg="6" class="p-0 image">
         <header>
-          <img src="https://www.sunballast.com/wp-content/uploads/2023/02/F02.JPG.jpeg" 
-               alt="Pannelli Fotovoltaici" 
-               class="header-image">
+          <b-img
+            :src="hotelImage"
+            alt="Pannelli Fotovoltaici"
+            class="header-image"
+            fluid
+          />
         </header>
-      </div>
-
-      <!-- Colonna per il main -->
-      <div class="col-12">
+      </b-col>
+         <!--contenuto principale -->
+      <b-col cols="12" lg="6" class="p-0 ">
         <main>
-          <router-view />
+          <router-view v-slot="{ Component }">
+            <keep-alive>
+              <component :is="Component" />
+            </keep-alive>
+          </router-view>
         </main>
-      </div>
+      </b-col>
+    </b-row>
 
-      <!-- Colonna per la nav bar -->
-      <div class="col-12 mx-auto">
+    <!-- Navbar -->
+    <b-row>
+      <b-col cols="12" class="mx-auto">
         <nav class="bottom-nav">
-          <router-link to="/solar">
-            <i class="fa-solid fa-solar-panel"></i>
-            Pannelli Solari
-          </router-link>
           <router-link to="/weather">
             <i class="fa-solid fa-sun"></i>
             Meteo
+          </router-link>
+          <router-link to="/solar">
+            <i class="fa-solid fa-solar-panel"></i>
+            Pannelli
           </router-link>
           <router-link to="/logs">
             <i class="fa-solid fa-comments"></i>
             Messaggi
           </router-link>
         </nav>
-      </div>
-    </div>
-  </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import WeatherBox from './components/WeatherBox.vue';
-import EnergyBox from './components/EnergyBox.vue';
-import LogBox from './components/LogBox.vue';
+import hotelImage from "@/assets/hotel.png";
 </script>
 
 <style scoped>
 #app {
   display: flex;
   flex-direction: column;
-  /* Centra verticalmente e orizzontalmente */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to bottom, 
-            #85d8f9 0%, 
-            #b9e5f7 15%, 
-            #ffffff 50%, 
-            #ffffff 100%);
-}
-
-.hotel {
-  text-align: center;
-  color: #201f1fcd;
 }
 
 header {
@@ -71,44 +64,41 @@ header {
   justify-content: center;
 }
 
-header .header-image {
-  border-radius: 30px;
-  width: 80%;
-  max-height: 250px;
-  max-width: 400px;
-  height: auto;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+.header-image {
+  width: 100%;
+  object-fit: cover;
 }
 
 main {
-  display: flex;
-  padding: 1rem;
-  padding-bottom: 200px;
-  /* background-color: #eeeded64; */
-  background-color: a#01043bd9;
+  position: relative;
+  background-color: #f2f2f550;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
 }
-
+/* Navbar */
 .bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  background: aliceblue;
-  padding: 1rem;
   position: fixed;
   bottom: 0;
-  width: 91.8vw;
-  border-radius: 50px;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 1rem;
+  background: aliceblue;
+  border-radius: 40px 40px 0 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 .bottom-nav a {
+  flex: 1;
+  text-align: center;
   text-decoration: none;
-  color: #4CAF50;
+  color: #4caf50;
   font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0.5rem;
 }
 
 .bottom-nav a i {
@@ -117,5 +107,72 @@ main {
 
 .bottom-nav a:hover {
   text-decoration: underline;
+}
+
+.bottom-nav a.router-link-active {
+  color: #4caf50;
+  text-shadow: 0 0 10px #96f39a, 0 0 20px #4caf50, 0 0 30px #101b11;
+  transform: scale(1.1);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+/* mobile */
+@media (max-width: 576px) and (max-width:1025px)  {
+  .header-image {
+    height: 100vh;
+  }
+  main {
+    margin-top: -650px;
+    height: 70vh;
+    padding-bottom: 50px;
+    border-radius: 40px 40px 0 0;
+  }
+}
+
+/* tablet, visualizzazione simile mobile */
+@media (min-width: 576px) and (max-width:1025px)  {
+  main {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40vh;
+    padding-bottom: 60vh;
+    border-radius: 40px 40px 0 0;
+  }
+  .header-image{
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+
+  }
+}
+/* desktop */
+@media (min-width: 1026px){
+  #app{
+    display: grid;
+    background: radial-gradient(circle at center, #86c7f0cc, #5fada2a7 80%);
+  }
+  header{
+    height: 100%;
+    width: 45vw;
+    padding-top: 1rem;
+    left: 10vw;
+  }
+   main{
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0 50px 0 0;
+    width: 45vw;
+    margin-top: 1rem;
+    
+    padding-top: 20vh;
+    
+  }
+  .header-image{
+    border-radius: 50px 0 0 0;
+    min-width: 50vh;
+    width: 100vw;
+  }
 }
 </style>

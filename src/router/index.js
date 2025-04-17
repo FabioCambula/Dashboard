@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-// Importa i componenti per le diverse pagine. Assicurati di creare questi componenti o di modificarli in base alle tue necessità.
+// Import componenti delle pagine
 import EnergyBox from "../components/EnergyBox.vue";
 import WeatherBox from "../components/WeatherBox.vue";
 import LogBox from "../components/LogBox.vue";

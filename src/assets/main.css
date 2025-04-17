@@ -1,6 +1,22 @@
+/* stili globali */
 html, body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
+}
+.card-body{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.card-header:first-child {
+  border-radius: 30px 30px 0 0 !important;
+}
+
+@media (min-width: 574px) {
+  .container{
+    padding: 100px;
+  }
 }

@@ -1,17 +1,3 @@
-<template>
-  <div class="meteo">
-    <h2>Ragusa</h2>
-    <div v-if="weatherData">
-      <img class="meteo-img" :src="`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`" alt="Icona meteo" />
-      <p>Temperatura: {{ weatherData.main.temp }} °C</p>
-      <p>Condizioni: {{ weatherData.weather[0].description }}</p>  
-    </div>
-    <div v-else>
-      Caricamento dati meteo...
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
@@ -38,21 +24,46 @@ onMounted(() => {
   fetchWeather();
 });
 </script>
+<template>
+  <b-container class="py-4">
+    <div v-if="weatherData">
+      <b-card header="Ragusa"
+              header-bg-variant="info"
+              header-text-variant="white"
+              class="text-center shadow-sm card-weather">
+        <b-img 
+          :src="`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`" 
+          alt="Icona meteo" 
+          class="meteo-icon"
+          fluid
+        />
+        <div class="mt-3">
+          <p class="mb-1">
+            Temperatura: <strong>{{ weatherData.main.temp }} °C</strong>
+          </p>
+          <p class="mb-0">
+            Condizioni: <strong>{{ weatherData.weather[0].description }}</strong>
+          </p>
+        </div>
+      </b-card>
+    </div>
+    <div v-else class="text-center">
+      Caricamento dati meteo...
+    </div>
+  </b-container>
+</template>
 
 <style scoped>
 .meteo{
   text-align: center;
 }
-.meteo-img {
-  width: 50%;
+/* colore per le icone meteo */
+.meteo-icon {
   filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg);
 }
-
-h2 {
-  font-size: 2rem;
-  color: #4CAF50;
+.card-weather{
+  border-radius: 30px;
 }
-
 p {
   font-size: 1.2rem;
 }
