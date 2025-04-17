@@ -2,6 +2,7 @@
   "name": "dashboard",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://fabiocambula.github.io/Dashboard",
   "type": "module",
   "scripts": {
     "dev": "vite",
