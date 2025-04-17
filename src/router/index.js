@@ -1,5 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
-// Import componenti delle pagine
+import { createRouter, createWebHashHistory } from "vue-router";
 import EnergyBox from "../components/EnergyBox.vue";
 import WeatherBox from "../components/WeatherBox.vue";
 import LogBox from "../components/LogBox.vue";
@@ -11,9 +10,7 @@ const routes = [
   { path: "/logs", component: LogBox },
 ];
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+export default createRouter({
+  history: createWebHashHistory(),
   routes,
 });
-
-export default router;
