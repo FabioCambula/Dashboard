@@ -82,6 +82,7 @@ main {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
+  height: 90px;
   padding: 1rem;
   background: aliceblue;
   border-radius: 40px 40px 0 0;
@@ -116,15 +117,18 @@ main {
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 /* mobile */
-@media (max-width: 576px) and (max-width:1025px)  {
+@media (max-width: 576px)  {
   .header-image {
     height: 100vh;
   }
   main {
-    margin-top: -650px;
-    height: 70vh;
-    padding-bottom: 50px;
     border-radius: 40px 40px 0 0;
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+    height: 70vh;
+    overflow-y:scroll;
   }
 }
 
@@ -135,13 +139,14 @@ main {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    height: 40vh;
+    height: 75vh;
     padding-bottom: 60vh;
     border-radius: 40px 40px 0 0;
+    
   }
   .header-image{
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     top: 0px;
 
@@ -173,6 +178,12 @@ main {
     border-radius: 50px 0 0 0;
     min-width: 50vh;
     width: 100vw;
+  }
+}
+/* gestione overflow dispositivi mobile in landscape */
+@media (max-width: 1000px) and (orientation: landscape) {
+  main {
+    overflow-y: auto;
   }
 }
 </style>

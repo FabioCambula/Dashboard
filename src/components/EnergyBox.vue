@@ -88,6 +88,8 @@ body{
 
 .card-value span {
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  
 }
 .card {
   background: #ffff;
@@ -96,6 +98,7 @@ body{
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 1.2rem;
+  
 }
 .card p {
   margin: 0;
@@ -104,5 +107,6 @@ body{
   .card-value{
     margin-bottom: 1rem;
   }
+  
 }
 </style>

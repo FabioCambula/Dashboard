@@ -25,7 +25,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <b-container class="py-4">
+  <b-container class="py-4 meteo">
     <div v-if="weatherData">
       <b-card header="Ragusa"
               header-bg-variant="info"
@@ -57,14 +57,24 @@ onMounted(() => {
 .meteo{
   text-align: center;
 }
-/* colore per le icone meteo */
 .meteo-icon {
-  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg);
+  max-width: 150px; 
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .card-weather{
   border-radius: 30px;
 }
 p {
   font-size: 1.2rem;
+}
+.meteo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
 }
 </style>
