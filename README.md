@@ -51,3 +51,7 @@ La sfida principale è stata creare un’interfaccia moderna e user-friendly, ar
 ```bash
 git clone https://github.com/fabiocambula/Dashboard.git
 cd Dashboard
+
+## 📜 Licenza
+
+Questo progetto è stato realizzato a scopo didattico e non è destinato alla distribuzione o riutilizzo commerciale.
