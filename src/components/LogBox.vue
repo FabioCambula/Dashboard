@@ -42,16 +42,17 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
 .card-log{
   border-radius: 30px;
+  text-align: center;
 }
-header{
-  border-radius: 30px;
-}
+
 
 ul {
   list-style-type: none;
   padding: 0;
+  
 }
 
 li {
@@ -66,6 +67,7 @@ strong {
   color: #333;
 }
 .log-container {
+  text-align: left;
   overflow-y: hidden;
   margin-bottom: 2rem;
   padding-right: 0.5rem;
