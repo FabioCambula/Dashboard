@@ -1,29 +1,53 @@
-# Dashboard
+# 🌞 Solar Dashboard - Vue.js Project
 
-This template should help get you started developing with Vue 3 in Vite.
+Una dashboard realizzata con **Vue.js** per monitorare l'efficienza energetica dei pannelli solari, visualizzare le condizioni meteo e i log di sistema.
 
-## Recommended IDE Setup
+## 🚀 Demo
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+🔗 [Visualizza il progetto online](https://fabiocambula.github.io/Dashboard)
 
-## Customize configuration
+## 🧩 Funzionalità
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- 🌡 **Visualizzazione meteo**: recupero e visualizzazione in tempo reale delle condizioni meteorologiche attuali.
+- ⚙️ **Log di sistema**: elenco aggiornato degli eventi di sistema.
+- 🔋 **Produzione solare**: rappresentazione dei dati relativi all'energia prodotta dai pannelli solari.
+- 📱 **Design responsive**: interfaccia adattabile a dispositivi mobile e desktop.
+- 🧭 **Navigazione con Vue Router**: gestione delle pagine tramite SPA (Single Page Application).
+- 🛠 **Deploy su GitHub Pages**: l'app è pubblicata ed accessibile da qualsiasi dispositivo connesso a internet.
 
-## Project Setup
+## 🛠️ Tecnologie utilizzate
 
-```sh
-npm install
-```
+- **HTML** – Struttura dell'applicazione  
+- **CSS / Bootstrap** – Stile e impaginazione responsive  
+- **JavaScript**  
+- **Vue.js** – Framework JavaScript principale  
+- **Vue Router** – Navigazione tra componenti senza ricaricare la pagina  
+- **Axios** – Per effettuare richieste HTTP verso le API  
+- **Git** – Versionamento del codice  
+- **GitHub Pages** – Hosting statico del progetto  
+- **Favicon personalizzata** – Per dare identità al progetto  
+- **OpenGraph** – Per migliorare la condivisione sui social  
 
-### Compile and Hot-Reload for Development
+## 📁 Struttura dei componenti
 
-```sh
-npm run dev
-```
+- `App.vue`: componente principale, gestisce il layout globale.
+- `EnergyBox.vue`: visualizza la produzione di energia.
+- `WeatherBox.vue`: mostra le condizioni meteo.
+- `LogBox.vue`: elenca i log di sistema.
 
-### Compile and Minify for Production
+## 💡 Motivazioni tecniche
 
-```sh
-npm run build
-```
+La separazione dei componenti riflette il principio di **responsabilità singola**: ogni componente ha un compito specifico, facilitando la manutenzione e l'estensione dell'app.  
+La navigazione tramite Vue Router consente una UX fluida e reattiva, senza ricaricamenti di pagina.
+
+## 🧠 Sfide affrontate
+
+La sfida principale è stata creare un’interfaccia moderna e user-friendly, armonizzando componenti con dimensioni e comportamenti differenti. Dopo diverse iterazioni, sono riuscito a raggiungere un equilibrio tra design e funzionalità.
+
+## 💻 Come eseguire il progetto localmente
+
+### 1. Clona il repository
+
+```bash
+git clone https://github.com/fabiocambula/Dashboard.git
+cd Dashboard
